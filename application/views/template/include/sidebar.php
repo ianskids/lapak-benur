@@ -106,13 +106,13 @@
 						<i class="bi bi-file-earmark-spreadsheet-fill"></i> <span>Proses</span> </a>
 					<ul class="submenu">
 						<li class="submenu-item <?php if ($page == 'proses-regular') {echo 'active';} ?>">
-							<a href="<?php echo base_url(); ?>benur/proses" class="submenu-link">Regular</a>
+							<a href="<?php echo base_url(); ?>benur/proses/data/regular" class="submenu-link">Regular</a>
 						</li>
 						<li class="submenu-item <?php if ($page == 'proses-premium') {echo 'active';} ?>">
-							<a href="<?php echo base_url(); ?>benur/proses/premium" class="submenu-link" >Premium</a>
+							<a href="<?php echo base_url(); ?>benur/proses/data/premium" class="submenu-link" >Premium</a>
 						</li>
 						<li class="submenu-item <?php if ($page == 'proses-maksimalprima') {echo 'active';} ?>">
-							<a href="<?php echo base_url(); ?>benur/proses/maksimalprima" class="submenu-link">Maksimal Prima</a>
+							<a href="<?php echo base_url(); ?>benur/proses/data/maksimalprima" class="submenu-link">Maksimal Prima</a>
 						</li>
 					</ul>
 				</li>

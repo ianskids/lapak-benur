@@ -63,10 +63,10 @@ class Pendaftaran extends MY_Controller {
               $sub_array[] = angka_indo($row->jmlBenur); 
               $sub_array[] = $row->nama_agen; 
               $sub_array[] = time_convert($row->tglSchedule);
-              $sub_array[] = '<div class="btn-group" role="group" aria-label="Basic example">
-                      <a href="#" class="badge bg-primary"><i class="bi bi-pencil"></i></a>
-                      <a href="#" class="badge bg-warning"><i class="bi bi-x"></i></a>
-                    </div>';  
+              $sub_array[] = '
+                      <a href="#" class="btn btn-primary  btn-xs"><i class="bi bi-pencil"></i></a>
+                      <a href="#" class="btn btn-warning btn-xs"><i class="bi bi-x"></i></a>
+                    ';  
                $sub_array[] = $status; 
               $data[] = $sub_array;  
 

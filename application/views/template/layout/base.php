@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?></title>
-    <link rel="stylesheet" href="<?= base_url('assets/compiled/css/style.css')?>" />
+    
     <link rel="stylesheet" href="<?= base_url('assets/compiled/css/app.css') ?>" />
     <link rel="stylesheet" href="<?= base_url('assets/compiled/css/app-dark.css') ?>" />
+    <link rel="stylesheet" href="<?= base_url('assets/compiled/css/style.css')?>" />
 
 
         <link rel="shortcut icon" href="<?= base_url('assets/static/images/logo/favicon.svg') ?>" type="image/x-icon" />
@@ -15,6 +16,8 @@
     <script src="<?= base_url('assets/extensions/jquery/jquery.min.js')?>"></script>
 
 <link  rel="stylesheet" href="<?= base_url()?>assets/extensions/flatpickr/flatpickr.min.css"   />
+<link  rel="stylesheet" href="<?= base_url()?>assets/extensions/toastify-js/src/toastify.css"   />
+<link  rel="stylesheet" href="<?= base_url()?>assets/extensions/@fortawesome/fontawesome-free/css/all.min.css"   />
 
 <!-- data tables -->
 <link href="<?= base_url()?>assets/extensions/DataTables/DataTables-1.13.6/css/dataTables.bootstrap5.css" rel="stylesheet">
@@ -57,6 +60,7 @@
      <script src="<?= base_url()?>assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 
      <script src="<?= base_url()?>assets/compiled/js/app.js"></script>
+     <script src="<?= base_url()?>assets/extensions/toastify-js/src/toastify.js"></script>
      
 </body>
 
