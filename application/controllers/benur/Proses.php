@@ -51,19 +51,18 @@ class Proses extends MY_Controller {
                       $sub_array[] = $row->nama;
                       $sub_array[] = angka_indo($row->jmlBenur); 
                       $sub_array[] = $row->nama_agen; 
-                      $sub_array[] = $row->tglSchedule;
+                      $sub_array[] = time_convert($row->tglSchedule);
                       if($proses === 'daftar'){
-                        $sub_array[] = '<button class="btn btn-success proses-dataBenur btn-xs" data-id="'.$row->id.'"><i class="bi bi-check-square-fill"></i></button>
-                      <button class="btn btn-primary proses-edit-dataBenur btn-xs"><i class="bi bi-pencil-square"></i></button>';
+                        $sub_array[] = '<button class="btn btn-success proses-dataBenur btn-xs" data-id="'.$row->id.'"><i class="bi bi-check-square-fill"></i></button> <button class="btn btn-primary update-dataBenur btn-xs" data-id="'.$row->id.'"><i class="bi bi-pencil-square"></i></button>';
                     }else{
-                            $sub_array[] = '<button class="btn btn-success kembali-dataBenur btn-xs" data-id="'.$row->id.'"><i class="bi bi-arrow-left-square"></i></button>
-                      <button class="btn btn-warning update-dataBenur btn-xs" data-id="'.$row->id.'"><i class="bi bi-pencil-square"></i></button>';
+                            $sub_array[] = '<button class="btn btn-success kembali-dataBenur btn-xs" data-id="'.$row->id.'"><i class="bi bi-arrow-left-square"></i></button> <button class="btn btn-warning update-dataBenur btn-xs" data-id="'.$row->id.'"><i class="bi bi-pencil-square"></i></button>';
                     }               
                       $data[] = $sub_array;  
                  }  
                  $output = array(   
                       "data"   =>     $data  
                  );  
+                 header('Content-Type: application/json; charset=utf-8');
                  echo json_encode($output);  
     }
 

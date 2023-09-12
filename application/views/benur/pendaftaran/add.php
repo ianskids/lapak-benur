@@ -136,10 +136,7 @@
                                         <div class="col-md-4 col-12">
                                             <div class="form-group">
                                                 <label for="tglSchedule" >Tanggal Tebar</label>
-                                                <input
-                                                type="date"
-                                                class="form-control mb-3 flatpickr-no-config"
-                                                placeholder="Select date.."  name="tglSchedule"
+                                                <input type="date" class="form-control mb-3 flatpickr-no-config" placeholder="Select date.."  name=" tglSchedule"
                                                  required/>
 
                                             </div>

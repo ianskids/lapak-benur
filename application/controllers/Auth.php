@@ -7,9 +7,6 @@ class Auth extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        if ($this->session->userdata('name')) {
-            redirect('home');
-        }
         $this->load->model('auth_model', 'Auth');
     }
 
@@ -34,7 +31,13 @@ class Auth extends CI_Controller
                 ];
                 $this->session->set_userdata($sessionData);
                 $this->session->set_flashdata('berhasil', 'Selamat Datang!');
-                redirect('home');
+                if($this->session->userdata('login_referrer')!=""){
+                    $tmp_referrer = $this->session->userdata('login_referrer');
+                    $this->session->unset_userdata('login_referrer');
+                    redirect($tmp_referrer);
+                }else{
+                    redirect('Home');
+                }
             } else {
                 $this->session->set_flashdata('gagal', 'Password atau Username yang anda masukkan salah!');
                 redirect('auth/login');

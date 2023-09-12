@@ -45,7 +45,7 @@ class Benur_model extends CI_Model {
 
 
 
-    public function insert($data) {
+    public function insert_benur($data) {
         
         $data = array(
                 'alamat'    => $data['alamat'],
@@ -69,7 +69,7 @@ class Benur_model extends CI_Model {
         return $this->db->insert_id();
     }
 
-    public function update($data) {
+    public function update_benur($data) {
         $data = array(
                 'id'=> $data['id'],
                 'alamat'    => $data['alamat'],
@@ -85,7 +85,6 @@ class Benur_model extends CI_Model {
                 'jmlKantong'=> only_numbers($data['jmlKantong']),
                 'tglSchedule'=> date("Y-m-d", strtotime($data['tglSchedule'])),
                 'biaya'=> only_numbers($data['biaya']),
-                'dp' => only_numbers($data['dp'])
         );
 
         $this->db->where('id', $data['id']);

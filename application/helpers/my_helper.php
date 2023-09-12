@@ -2,8 +2,14 @@
 
 function time_convert($timestamp, $timezone = 'Asia/Jakarta'){
         $datetime = new DateTime($timestamp, new DateTimeZone($timezone));
-        return $datetime->format('d M Y');
+        return $datetime->format('d-M-Y');
     }
+
+function time_date($timestamp, $timezone = 'Asia/Jakarta'){
+        $datetime = new DateTime($timestamp, new DateTimeZone($timezone));
+        return $datetime->format('Y-m-d');
+   }
+
 function tgl_indo($timestamp){
     $timezone = 'Asia/Jakarta';
     $datetime = new DateTime($timestamp, new DateTimeZone($timezone));
@@ -122,5 +128,77 @@ function tgl_indo($timestamp){
                     </div>';
                 }
             }
+            // MODAL
+            function show_my_modal($content='', $title='',$id='', $data='', $size='md', $class_save = "") {
+               $_ci = &get_instance();
+
+                  if ($content != '') {
+                      $view_content = $_ci->load->view($content, $data, TRUE);
+
+                      return '<div class="modal fade text-left w-100" id="' .$id .'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel16" aria-hidden="true" > 
+                      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-' .$size .'" role="document" >
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h4 class="modal-title" id="myModalLabel16"> ' .$title .' </h4>
+                                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                    <i data-feather="x">&times;</i>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  ' .$view_content .'
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal" >
+                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Tutup</span>
+                                  </button>
+                                  <button type="button" class="btn btn-primary ms-1 ' .$class_save .'" data-bs-dismiss="modal" >
+                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Simpan Data</span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>';
+                  }
+              }
+
+              function show_my_modal_form($content='', $title='',$id_form='', $id='', $data='', $size='md') {
+                  $_ci = &get_instance();
+
+                  if ($content != '') {
+                      $view_content = $_ci->load->view($content, $data, TRUE);
+
+                      return '<form method="POST" id="' .$id_form .'">
+                      <div class="modal fade text-left w-100"
+                            id="' .$id .'" role="dialog" aria-labelledby="myModalLabel16" aria-hidden="true" >
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-' .$size .'"
+                              role="document" >
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h4 class="modal-title" id="myModalLabel16"> ' .$title .' </h4>
+                                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                    <i data-feather="x">&times;</i>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  ' .$view_content .'
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal" >
+                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Close</span>
+                                  </button>
+                                  <button type="submit" class="btn btn-primary ms-1" data-bs-dismiss="modal" >
+                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Accept</span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          </form>';
+                  }
+                }
 
 ?>

@@ -63,10 +63,7 @@ class Pendaftaran extends MY_Controller {
               $sub_array[] = angka_indo($row->jmlBenur); 
               $sub_array[] = $row->nama_agen; 
               $sub_array[] = time_convert($row->tglSchedule);
-              $sub_array[] = '
-                      <a href="#" class="btn btn-primary  btn-xs"><i class="bi bi-pencil"></i></a>
-                      <a href="#" class="btn btn-warning btn-xs"><i class="bi bi-x"></i></a>
-                    ';  
+              $sub_array[] = '<a href="#" class="btn btn-primary btn-xs update-dataBenur" data-id="'.$row->id.'"><i class="bi bi-pencil"></i></a> <a href="#" class="btn btn-warning btn-xs"><i class="bi bi-x"></i></a>';  
                $sub_array[] = $status; 
               $data[] = $sub_array;  
 
@@ -74,6 +71,7 @@ class Pendaftaran extends MY_Controller {
          $output = array(   
               "data"  =>     $data  
          );  
+         header('Content-Type: application/json; charset=utf-8');
          echo json_encode($output);  
     }  
 
@@ -108,7 +106,7 @@ class Pendaftaran extends MY_Controller {
      $data['judul'] = "Data Benur";
      $data['deskripsi'] = "Manage Data Benur";
 
-     echo show_my_modal('benur/pendaftaran/modals/update_benur', 'Pendaftaran Tebar Benur', 'update-benur', $data, 'lg');
+     echo show_my_modal_form('benur/pendaftaran/update_benur', 'Pendaftaran Tebar Benur', 'form-update-benur', 'update-benur', $data, 'lg');
     }
 
     public function insert() {
@@ -129,15 +127,18 @@ class Pendaftaran extends MY_Controller {
         if ($this->form_validation->run() == TRUE) {
           if($this->input->post('id'))
           {
-               $result = $this->Benur_model->update($data);
+               $result = $this->Benur_model->update_benur($data);
+               $msg = 'Data Benur Berhasil diupdate';
+
           }else{
-               $result = $this->Benur_model->insert($data);
+               $result = $this->Benur_model->insert_benur($data);
+               $msg = 'Data Benur Berhasil ditambahkan';
           }
 
             if ($result > 0) {
                 $out['id'] = $result;
                 $out['status'] = 'success';
-               $out['msg'] = 'Data Benur Berhasil ditambahkan';
+               $out['msg'] = $msg;
                $this->session->set_flashdata('berhasil', 'Data Benur berhasil ditambahkan!');
             } else {
                 $out['status'] = 'error';

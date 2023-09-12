@@ -10,7 +10,7 @@ class Petambak extends MY_Controller {
 	public function ajax() {
 		$alamat = $this->input->get('alamat');
 		$data['dataPetambak'] = $this->Petambak_model->pilih_alamat($alamat);
-
+		// header('Content-Type: application/json; charset=utf-8');
 		echo json_encode($data['dataPetambak']);
 	}
 

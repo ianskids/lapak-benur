@@ -74,6 +74,7 @@
     </section>
     <!-- Basic Tables end -->
 </div>
+<div id="tempat-modal"></div>
 
 <script type="text/javascript">
     
@@ -124,6 +125,7 @@
                 url: "<?php echo base_url('benur/proses/proses_edit_ajax'); ?>",
                 data: "id=" +id+ "&status=proses",
                 success: function(data){
+                    console.log(data)
                     var out = jQuery.parseJSON(data);
                     table_proses.ajax.reload();  
                     Toastify({
@@ -173,5 +175,49 @@
             }
             table_proses.ajax.url( link ).load();
         });
+
+        $(document).on("click", ".tambah-benur", function() {
+            $.ajax({
+                method: "POST",
+                url: "<?php echo base_url('/benur/pendaftaran/form_add'); ?>",
+            })
+            .done(function(data) {
+                $('#tempat-modal').html(data);
+                $('#tambah-benur ').modal('show');
+            })
+        })
+
+        $(document).on('submit', '#form-update-benur', function(e){
+            var data = $(this).serialize();
+            $.ajax({
+                method: 'POST',
+                url: '<?php echo base_url('/benur/pendaftaran/insert'); ?>',
+                data: data,
+                success: function(data){
+                    var out = jQuery.parseJSON(data);
+                    if (out.status == 'form') {
+                        $('.form-msg').html(out.msg);
+                        effect_msg_form();
+                    } else {
+                        document.getElementById("form-update-benur").reset();
+                        $('#tambah-benur').modal('hide');
+                        $('#update-benur').modal('hide');
+                        table_proses.ajax.reload(); 
+                        Toastify({
+                            text: out.msg,
+                            duration: 3000,
+                            close: true,
+                            gravity: "top",
+                            position: "right",
+                            style: {
+                                background: '#4fbe87'
+                            }
+                          }).showToast()
+                    }
+                }
+            })
+            e.preventDefault();
+        });
+
 
 </script>

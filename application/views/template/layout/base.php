@@ -22,29 +22,30 @@
 <!-- data tables -->
 <link href="<?= base_url()?>assets/extensions/DataTables/DataTables-1.13.6/css/dataTables.bootstrap5.css" rel="stylesheet">
 <link href="<?= base_url()?>assets/extensions/DataTables/Buttons-2.4.1/css/buttons.bootstrap5.css" rel="stylesheet">
- 
-<script src="<?= base_url()?>assets/extensions/DataTables/JSZip-3.10.1/jszip.js"></script>
-<script src="<?= base_url()?>assets/extensions/DataTables/pdfmake-0.2.7/pdfmake.js"></script>
-<script src="<?= base_url()?>assets/extensions/DataTables/pdfmake-0.2.7/vfs_fonts.js"></script>
-<script src="<?= base_url()?>assets/extensions/DataTables/DataTables-1.13.6/js/jquery.dataTables.js"></script>
-<script src="<?= base_url()?>assets/extensions/DataTables/DataTables-1.13.6/js/dataTables.bootstrap5.js"></script>
-<script src="<?= base_url()?>assets/extensions/DataTables/Buttons-2.4.1/js/dataTables.buttons.js"></script>
-<script src="<?= base_url()?>assets/extensions/DataTables/Buttons-2.4.1/js/buttons.bootstrap5.js"></script>
-<script src="<?= base_url()?>assets/extensions/DataTables/Buttons-2.4.1/js/buttons.colVis.js"></script>
-<script src="<?= base_url()?>assets/extensions/DataTables/Buttons-2.4.1/js/buttons.html5.js"></script>
-<script src="<?= base_url()?>assets/extensions/DataTables/Buttons-2.4.1/js/buttons.print.js"></script>
-<!-- data tables -->
-<!-- select2 -->
-<link href="<?= base_url()?>assets/extensions/select2/dist/css/select2.min.css" rel="stylesheet" />
-<script src="<?= base_url()?>assets/extensions/select2/dist/js/select2.min.js"></script>
-<link href="<?= base_url()?>assets/extensions/select2/select2-bootstrap-5-theme-1.3.0/select2-bootstrap-5-theme.css" rel="stylesheet" />
-<!-- select2 -->
-<script src="<?= base_url()?>assets/extensions/flatpickr/flatpickr.min.js"></script>
+
 </head>
 
 
 
 <body>
+     
+    <script src="<?= base_url()?>assets/extensions/DataTables/JSZip-3.10.1/jszip.js"></script>
+    <script src="<?= base_url()?>assets/extensions/DataTables/pdfmake-0.2.7/pdfmake.js"></script>
+    <script src="<?= base_url()?>assets/extensions/DataTables/pdfmake-0.2.7/vfs_fonts.js"></script>
+    <script src="<?= base_url()?>assets/extensions/DataTables/DataTables-1.13.6/js/jquery.dataTables.js"></script>
+    <script src="<?= base_url()?>assets/extensions/DataTables/DataTables-1.13.6/js/dataTables.bootstrap5.js"></script>
+    <script src="<?= base_url()?>assets/extensions/DataTables/Buttons-2.4.1/js/dataTables.buttons.js"></script>
+    <script src="<?= base_url()?>assets/extensions/DataTables/Buttons-2.4.1/js/buttons.bootstrap5.js"></script>
+    <script src="<?= base_url()?>assets/extensions/DataTables/Buttons-2.4.1/js/buttons.colVis.js"></script>
+    <script src="<?= base_url()?>assets/extensions/DataTables/Buttons-2.4.1/js/buttons.html5.js"></script>
+    <script src="<?= base_url()?>assets/extensions/DataTables/Buttons-2.4.1/js/buttons.print.js"></script>
+    <!-- data tables -->
+    <!-- select2 -->
+    <link href="<?= base_url()?>assets/extensions/select2/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="<?= base_url()?>assets/extensions/select2/dist/js/select2.min.js"></script>
+    <link href="<?= base_url()?>assets/extensions/select2/select2-bootstrap-5-theme-1.3.0/select2-bootstrap-5-theme.css" rel="stylesheet" />
+    <!-- select2 -->
+    <script src="<?= base_url()?>assets/extensions/flatpickr/flatpickr.min.js"></script>
     <script src="<?= base_url('assets/static/js/initTheme.js') ?>"></script>
     <?php include (dirname(__FILE__) . '../../include/script.php'); ?>
     <div id="app">

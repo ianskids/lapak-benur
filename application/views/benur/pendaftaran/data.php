@@ -65,7 +65,7 @@
     </section>
     <!-- Basic Tables end -->
 </div>
-
+<div id="tempat-modal"></div>
 <script type="text/javascript">
         var table_benur =  $('#list-data').DataTable({
             "ajax" : {

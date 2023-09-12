@@ -116,6 +116,21 @@
 						</li>
 					</ul>
 				</li>
+				<li class="sidebar-item <?php if ($root == 'pembagian') {echo 'active';} ?> has-sub">
+					<a href="#" class="sidebar-link">
+						<i class="bi bi-file-earmark-spreadsheet-fill"></i> <span>Pembagian</span> </a>
+					<ul class="submenu">
+						<li class="submenu-item <?php if ($page == 'pembagian-regular') {echo 'active';} ?>">
+							<a href="<?php echo base_url(); ?>benur/pembagian/data/regular" class="submenu-link">Regular</a>
+						</li>
+						<li class="submenu-item <?php if ($page == 'pembagian-premium') {echo 'active';} ?>">
+							<a href="<?php echo base_url(); ?>benur/pembagian/data/premium" class="submenu-link" >Premium</a>
+						</li>
+						<li class="submenu-item <?php if ($page == 'pembagian-maksimalprima') {echo 'active';} ?>">
+							<a href="<?php echo base_url(); ?>benur/pembagian/data/maksimalprima" class="submenu-link">Maksimal Prima</a>
+						</li>
+					</ul>
+				</li>
 				<li class="sidebar-title">Setting</li>
 				<li class="sidebar-item <?php if ($root == 'user') {echo 'active';} ?> ">
 					<a href="<?php echo base_url(); ?>user" class="sidebar-link">
