@@ -53,7 +53,7 @@ class Pendaftaran extends MY_Controller {
           }else{
                $status = '<span class="badge bg-danger">'.strtoupper($row->status).'</span>';
           }
-               
+                
 
               $sub_array = array();                  
               $sub_array[] = $no++;                  
