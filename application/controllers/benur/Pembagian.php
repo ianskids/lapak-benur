@@ -76,16 +76,14 @@ class Pembagian extends MY_Controller {
 		         foreach($fetch_data as $row)  
 		         {  
 		              $sub_array = array();                  
-		              $sub_array[] = $no++. '<input type="hidden" name="id_benur[]" value="'.$row->id.'"/>';
-		              $sub_array[] = $row->kode_benur;                 
+		              $sub_array[] = $no++. '<input type="hidden" name="id_benur[]" value="'.$row->id.'"/>';          
 		              $sub_array[] = $row->alamat;  
 		              $sub_array[] = $row->nama; 
 		              $sub_array[] = angka_indo($row->jmlBenur);
 		              $sub_array[] = angka_indo($row->jmlBenurKirim); 
 		              $sub_array[] = angka_indo($row->perkantong); 
-		              $sub_array[] = angka_indo($row->jmlKantong).
-		              '&emsp;
-		              <div class="btn btn-success btn-xs  up-kantongbenur" data-id="'.$row->id.'"><i class="bi bi-arrow-up"></i></div>
+		              $sub_array[] = angka_indo($row->jmlKantong);
+		              $sub_array[] = '<div class="btn btn-success btn-xs  up-kantongbenur" data-id="'.$row->id.'"><i class="bi bi-arrow-up"></i></div>
 		              <div class="btn btn-warning btn-xs down-kantongbenur" data-id="'.$row->id.'"><i class="bi bi-arrow-down"></i></div>';  
 		              $sub_array[] = time_convert($row->tglTebar);   
 		              $sub_array[] = '<div class="btn btn-success btn-xs  kembali-proses-dataBenur" data-id="'.$row->id.'"><i class="bi bi-rewind-btn"></i></div>
@@ -241,7 +239,10 @@ class Pembagian extends MY_Controller {
 		$total = 0;
 		if(isset($data['benur'])){
 			$benur = $data['benur'];
-			$kode = isset($data['kode'])?$data['kode']:NUll;
+
+			$kode = ($data['kode'] ==! "")?$data['kode']:NUll;
+
+
 			$sum = $this->Pembagian_model->sum($data['benur'], $kode, 'tebar');
 			$total = $sum->jmlBenurKirim;
 		}

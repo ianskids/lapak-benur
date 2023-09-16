@@ -189,7 +189,7 @@ table, td, th{
                                 <td colspan="3">CATATAN :</td>
                             </tr>
                             <tr>
-                                <td colspan="2" rowspan="4"  style="text-align: center;vertical-align:bottom;"><?php echo $userdata->nama; ?></td>
+                                <td colspan="2" rowspan="4"  style="text-align: center;vertical-align:bottom;"><?php echo $userdata; ?></td>
                                 <td  rowspan="4"  style="text-align: center;vertical-align:bottom;"><?php echo $dataBenur->nama; ?></td>
                                 <td colspan="2" rowspan="4"  style="text-align: center;vertical-align:bottom;"></td>
                                 <td colspan="3"  >&nbsp;  </td>

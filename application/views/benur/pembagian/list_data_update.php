@@ -57,8 +57,10 @@
 								
 								<div class="row fixed-menu">
 									<div id="fixed-menu-0" class="col-sm-2" style="display: none;">
-										<label for="Alamat">Tambah Alamat</label>
-										<div class="btn btn-sm btn-primary form-add-pembagian-benur" >Tambah Alamat</div>
+										<div class="form-group">
+											<label class="col-form-label col-form-label-sm" for="Tambah Alamat" >Tambah Alamat</label>
+											<div class="btn btn-sm btn-success form-add-pembagian-benur" >Tambah Alamat</div>
+										</div>
 									</div>
 									<div id="fixed-menu-1" class="col-sm-2">
 											<div class="form-group">
@@ -93,8 +95,7 @@
 									<div id="fixed-menu-6" class="col-sm-2">
 										<label for="tanggal" >Tanggal Tebar</label>
 											<div class="form-group">
-												<label class="col-form-label col-form-label-sm" for="tanggal" >Tanggal Tebar</label>
-												<input type="date" class="form-control form-control-sm flatpickr-no-config flatpickr-input" placeholder="Select date.."  name=" tanggal" value="<?php echo time_convert($data_kode->tanggal); ?>"
+												<input type="date" class="form-control form-control-sm flatpickr-no-config flatpickr-input" placeholder="Select date.."  name=" tanggal" value="<?php echo time_date($data_kode->tanggal); ?>"
 												 required/>
 										</div>
 									</div>
@@ -102,13 +103,13 @@
 									<div class="col-sm-1">
 										<div class="form-group">
 											<label for="Alamat">Simpan</label>
-											<button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-ok"></i> Simpan</button>
+											<button type="submit" class="btn btn-sm btn-primary"> <i class="glyphicon glyphicon-ok"></i> Simpan</button>
 										</div>
 									</div>
 									<div id="fixed-menu-7" class="col-sm-1">
 											<div class="form-group">
 												<label for="Alamat">Hapus</label>
-												<a href="<?php echo base_url('benur/pembagian/delete/'.$data.'/'.$data_kode->id); ?>"><div  class="btn btn-danger">  <i class="glyphicon glyphicon-ok"></i> Hapus</div> </a>
+												<a href="<?php echo base_url('benur/pembagian/delete/'.$data.'/'.$data_kode->id); ?>"><div  class="btn btn-sm btn-danger">  <i class="glyphicon glyphicon-ok"></i> Hapus</div> </a>
 											</div>
 									</div>
 								</div>
@@ -122,12 +123,12 @@
 								<thead>
 									<tr>
 										<th >No</th>
-										<th>Kode</th>
 										<th>Alamat</th>
 										<th>Nama Petambak</th>
 										<th>Permintaan Benur</th>
 										<th>Kirim Benur</th>
 										<th>Perkantong</th>
+										<th>Jumlah Kantong</th>
 										<th>Jumlah Kantong</th>
 										<th>Tanggal Tebar</th>
 										<th style="text-align: center;">Aksi</th>
@@ -150,13 +151,13 @@
 								<thead>
 									<tr>
 										<th >No</th>
-										<th>Kode</th>
 										<th>Alamat</th>
 										<th>Nama Petambak</th>
 										<th>Permintaan Benur</th>
 										<th>Kirim Benur</th>
 										<th>Perkantong</th>
-										<th>Jumlah Kantong</th>
+										<th >Jumlah Kantong</th>
+										<th >Jumlah Kantong</th>
 										<th>Tanggal Tebar</th>
 										<th style="text-align: center;">Aksi</th>
 									</tr>
@@ -280,7 +281,7 @@
 		// "responsive": true, 
 		        // "lengthChange": true, 
 		        // "autoWidth": true,
-		        columnDefs: [ { targets: [4,5,6,7], className: 'dt-body-right' } ],
+		        columnDefs: [ { targets: [3,4,5,6], className: 'dt-body-right' } ],
 		        buttons: {
 		            buttons: [
 		                {  text: 'Copy', extend: 'copy', className: 'bg-gradient-primary copyButton', init: function( api, node, config) {$(node).removeClass('btn-secondary')} },
@@ -297,14 +298,14 @@
 		                i : 0;
 		            };
 		// computing column Total the complete result 
-		            var jmlBenur = api.column( 4 ).data().reduce( function (a, b) {return intVal(a) + intVal(b);}, 0 );
-		            var jmlBenurkirim = api.column( 5 ).data().reduce( function (a, b) {return intVal(a) + intVal(b);}, 0 );
-		            var jmlkantong = api.column( 7 ).data().reduce( function (a, b) {return intVal(a) + intVal(b);}, 0 );
+		            var jmlBenur = api.column( 3 ).data().reduce( function (a, b) {return intVal(a) + intVal(b);}, 0 );
+		            var jmlBenurkirim = api.column( 4 ).data().reduce( function (a, b) {return intVal(a) + intVal(b);}, 0 );
+		            var jmlkantong = api.column( 6 ).data().reduce( function (a, b) {return intVal(a) + intVal(b);}, 0 );
 		// Update footer by showing the total with the reference of the column index 
 		            $( api.column( 1 ).footer() ).html('Total');
-		            $( api.column( 4 ).footer() ).html(ribuan(jmlBenur));
-		            $( api.column( 5 ).footer() ).html(ribuan(jmlBenurkirim));
-		            $( api.column( 7 ).footer() ).html((jmlkantong));
+		            $( api.column( 3 ).footer() ).html(ribuan(jmlBenur));
+		            $( api.column( 4 ).footer() ).html(ribuan(jmlBenurkirim));
+		            $( api.column( 6 ).footer() ).html((jmlkantong));
 		        },
 		        "initComplete": function(settings, json) {
 		            table_pembagian_benur_03.buttons().container().appendTo( $('.col-sm-6:eq(0)', table_pembagian_benur_03.table().container()));
@@ -320,7 +321,7 @@
 		    // "responsive": true, 
 		            // "lengthChange": true, 
 		            // "autoWidth": true,
-		            columnDefs: [ { targets: [4,5,6,7], className: 'dt-body-right' } ],
+		            columnDefs: [ { targets: [3,4,5,6], className: 'dt-body-right' } ],
 		            buttons: {
 		                buttons: [
 		                    {  text: 'Copy', extend: 'copy', className: 'bg-gradient-primary copyButton', init: function( api, node, config) {$(node).removeClass('btn-secondary')} },
@@ -337,14 +338,14 @@
 		                    i : 0;
 		                };
 		    // computing column Total the complete result 
-		                var jmlBenur = api.column( 4 ).data().reduce( function (a, b) {return intVal(a) + intVal(b);}, 0 );
-		                var jmlBenurkirim = api.column( 5 ).data().reduce( function (a, b) {return intVal(a) + intVal(b);}, 0 );
-		                var jmlkantong = api.column( 7 ).data().reduce( function (a, b) {return intVal(a) + intVal(b);}, 0 );
+		                var jmlBenur = api.column( 3 ).data().reduce( function (a, b) {return intVal(a) + intVal(b);}, 0 );
+		                var jmlBenurkirim = api.column( 4 ).data().reduce( function (a, b) {return intVal(a) + intVal(b);}, 0 );
+		                var jmlkantong = api.column( 6 ).data().reduce( function (a, b) {return intVal(a) + intVal(b);}, 0 );
 		    // Update footer by showing the total with the reference of the column index 
 		                $( api.column( 1 ).footer() ).html('Total');
-		                $( api.column( 4 ).footer() ).html(ribuan(jmlBenur));
-		                $( api.column( 5 ).footer() ).html(ribuan(jmlBenurkirim));
-		                $( api.column( 7 ).footer() ).html((jmlkantong));
+		                $( api.column( 3 ).footer() ).html(ribuan(jmlBenur));
+		                $( api.column( 4 ).footer() ).html(ribuan(jmlBenurkirim));
+		                $( api.column( 6 ).footer() ).html((jmlkantong));
 		            },
 		            "initComplete": function(settings, json) {
 		                table_pembagian_benur_04.buttons().container().appendTo( $('.col-sm-6:eq(0)', table_pembagian_benur_04.table().container()));

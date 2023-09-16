@@ -1,9 +1,26 @@
-    <!-- Basic Tables start -->
+   <div class="page-heading">
+       <div class="page-title">
+           <div class="row">
+               <div class="col-12 col-md-6 order-md-1 order-last">
+                   <h3><?php echo $judul; ?></h3>
+                   <!-- <p class="text-subtitle text-muted">Powerful interactive tables with datatables (jQuery required)</p> -->
+               </div>
+               <div class="col-12 col-md-6 order-md-2 order-first">
+                   <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                       <ol class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                           <li class="breadcrumb-item active" aria-current="page">DataTable Jquery</li>
+                       </ol>
+                   </nav>
+               </div>
+           </div>
+       </div>
+ <!-- Basic Tables start -->
     <section class="section">
                 <div class="card">
-                    <div class="card-header">
+ <!--                    <div class="card-header">
                         <h3 class="card-title"><?php echo $judul; ?></h3>
-                    </div>
+                    </div> -->
                     <!-- /.card-header -->
                     <div class="card-body">
                          <div class="table-responsive-sm">
@@ -72,9 +89,9 @@
                     "autoWidth": true,
                     buttons: {
                         buttons: [
-                            { text: 'Tambah Faktur', className: 'bg-gradient-primary',  action: function ( e, dt, button, config ) { window.location = '<?php echo base_url('benur/pembagian/list_data/'.$jenis_benur); ?>'; }, init: function( api, node, config) {$(node).removeClass('btn-secondary')} },
-                            {  text: 'Copy', extend: 'copy', className: 'bg-gradient-primary copyButton', init: function( api, node, config) {$(node).removeClass('btn-secondary')} },
-                            {  text: 'Excel', extend: 'excel', className: 'bg-gradient-primary excelButton', init: function( api, node, config) {$(node).removeClass('btn-secondary')}}
+                            { text: 'Tambah Faktur', className: 'btn-sm btn-outline-success',  action: function ( e, dt, button, config ) { window.location = '<?php echo base_url('benur/pembagian/list_data/'.$jenis_benur); ?>'; }, init: function( api, node, config) {$(node).removeClass('btn-secondary')} },
+                            {  text: 'Copy', extend: 'copy', className: 'btn-sm btn-outline-success copyButton', init: function( api, node, config) {$(node).removeClass('btn-secondary')} },
+                            {  text: 'Excel', extend: 'excel', className: 'btn-sm btn-outline-success excelButton', init: function( api, node, config) {$(node).removeClass('btn-secondary')}}
                             ]
                     },
                 });

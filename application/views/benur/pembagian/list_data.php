@@ -9,7 +9,7 @@
 					</div>
 					<!-- /.card-header -->
 					<div class="card-body">
-						<button class="btn btn-sm btn-primary form-add-pembagian-benur">Tambah Alamat</button>
+						<button class="btn btn-sm btn-success form-add-pembagian-benur">Tambah Alamat</button>
 						<button class="btn btn-sm btn-warning form-custom-kantong">Update Perkantong</button>
 						<div class="row mt-2"></div>
 						
@@ -35,7 +35,7 @@
 											<div class="col-sm-2">
 												<div class="form-group">
 													<label class="col-form-label col-form-label-sm" for="Kode">BOX</label>
-													<input type="text" class="form-control form-control-sm" placeholder="Box" name="box" id="box" aria-describedby="sizing-addon2" value="" onkeyup="sum_total_ktg(); "required>
+													<input type="text" class="form-control form-control-sm" placeholder="Box" name="box" id="box" aria-describedby="sizing-addon2" value="" onkeyup="sum_total_ktg(); sum_selisih();"required>
 												</div>
 											</div>
 											<div class="col-sm-1">
@@ -52,9 +52,12 @@
 											</div>
 										</div>
 										<div class="row fixed-menu">
+											
 											<div id="fixed-menu-0" class="col-sm-2" style="display: none;">
-												<label for="Alamat">Tambah Alamat</label>
-												<div class="btn btn-sm btn-primary form-add-pembagian-benur" >Tambah Alamat</div>
+												<div class="form-group">
+													<label class="col-form-label col-form-label-sm" for="Tambah Alamat" >Tambah Alamat</label>
+													<div class="btn btn-sm btn-success form-add-pembagian-benur" >Tambah Alamat</div>
+												</div>
 											</div>
 
 											<div id="fixed-menu-1" class="col-sm-2">
@@ -110,12 +113,12 @@
 										<thead>
 											<tr>
 												<th >No</th>
-												<th>Kode</th>
 												<th>Alamat</th>
 												<th>Nama Petambak</th>
 												<th>Permintaan Benur</th>
 												<th>Kirim Benur</th>
 												<th>Perkantong</th>
+												<th>Jumlah Kantong</th>
 												<th>Jumlah Kantong</th>
 												<th>Tanggal Tebar</th>
 												<th style="text-align: center;">Aksi</th>

@@ -2,8 +2,8 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>DataTable Jquery</h3>
-                <p class="text-subtitle text-muted">Powerful interactive tables with datatables (jQuery required)</p>
+                <h3>Data Pendaftaran Benur</h3>
+                <!-- <p class="text-subtitle text-muted">Powerful interactive tables with datatables (jQuery required)</p> -->
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -19,9 +19,6 @@
     <!-- Basic Tables start -->
     <section class="section">
         <div class="card">
-            <div class="card-header">
-                Data Pendaftaran Benur
-            </div>
             <?php if ($this->session->flashdata('berhasil')) : ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <?php echo @$this->session->flashdata('berhasil'); ?>
@@ -79,10 +76,10 @@
             columnDefs: [ { targets: [3], className: 'dt-body-right' } ],
             buttons: {
                 buttons: [
-                    { text: 'Tambah', className: 'btn-outline-primary',  action: function ( e, dt, button, config ) { window.location = '<?php echo base_url('benur/pendaftaran/add/'.$jenis_benur); ?>'; }, init: function( api, node, config) {$(node).removeClass('btn-secondary')} },
-                    { text: 'Copy', extend: 'copy', className: 'btn-outline-primary', init: function( api, node, config) {$(node).removeClass('btn-secondary')} },
-                    { text: 'Excel', extend: 'excel', className: 'btn-outline-primary', init: function( api, node, config) {$(node).removeClass('btn-secondary')}},
-                    { text: 'Pdf', extend: 'pdf', className: 'btn-outline-primary', init: function( api, node, config) {$(node).removeClass('btn-secondary')}},
+                    { text: 'Tambah', className: 'btn-sm btn-outline-primary',  action: function ( e, dt, button, config ) { window.location = '<?php echo base_url('benur/pendaftaran/add/'.$jenis_benur); ?>'; }, init: function( api, node, config) {$(node).removeClass('btn-secondary')} },
+                    { text: 'Copy', extend: 'copy', className: 'btn-sm btn-outline-primary', init: function( api, node, config) {$(node).removeClass('btn-secondary')} },
+                    { text: 'Excel', extend: 'excel', className: 'btn-sm btn-outline-primary', init: function( api, node, config) {$(node).removeClass('btn-secondary')}},
+                    { text: 'Pdf', extend: 'pdf', className: 'btn-sm btn-outline-primary', init: function( api, node, config) {$(node).removeClass('btn-secondary')}},
                     ]
             },
             "footerCallback": function ( row, data, start, end, display ) {
@@ -110,4 +107,36 @@
                 table_benur.buttons().container().appendTo('#list-data_wrapper .col-md-6:eq(0)');
             },
         })
+        $(document).on('submit', '#form-update-benur', function(e){
+            var data = $(this).serialize();
+            $.ajax({
+                method: 'POST',
+                url: '<?php echo base_url('/benur/pendaftaran/insert'); ?>',
+                data: data,
+                success: function(data){
+                    var out = jQuery.parseJSON(data);
+                    if (out.status == 'form') {
+                        $('.form-msg').html(out.msg);
+                        effect_msg_form();
+                    } else {
+                        document.getElementById("form-update-benur").reset();
+                        $('#tambah-benur').modal('hide');
+                        $('#update-benur').modal('hide');
+                        table_benur.ajax.reload(); 
+                        Toastify({
+                            text: out.msg,
+                            duration: 3000,
+                            close: true,
+                            gravity: "top",
+                            position: "right",
+                            style: {
+                                background: '#4fbe87'
+                            }
+                          }).showToast()
+                    }
+                }
+            })
+            e.preventDefault();
+        });
+
 </script>

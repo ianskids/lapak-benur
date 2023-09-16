@@ -8,7 +8,7 @@
     
     <link rel="stylesheet" href="<?= base_url('assets/compiled/css/app.css') ?>" />
     <link rel="stylesheet" href="<?= base_url('assets/compiled/css/app-dark.css') ?>" />
-    <link rel="stylesheet" href="<?= base_url('assets/compiled/css/style.css')?>" />
+    
 
 
         <link rel="shortcut icon" href="<?= base_url('assets/static/images/logo/favicon.svg') ?>" type="image/x-icon" />
@@ -22,7 +22,7 @@
 <!-- data tables -->
 <link href="<?= base_url()?>assets/extensions/DataTables/DataTables-1.13.6/css/dataTables.bootstrap5.css" rel="stylesheet">
 <link href="<?= base_url()?>assets/extensions/DataTables/Buttons-2.4.1/css/buttons.bootstrap5.css" rel="stylesheet">
-
+<link rel="stylesheet" href="<?= base_url('assets/compiled/css/style.css')?>" />
 </head>
 
 
