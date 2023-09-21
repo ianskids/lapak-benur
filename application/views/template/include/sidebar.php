@@ -131,6 +131,21 @@
 						</li>
 					</ul>
 				</li>
+				<li class="sidebar-item <?php if ($root == 'realisasi') {echo 'active';} ?> has-sub">
+					<a href="#" class="sidebar-link">
+						<i class="bi bi-file-earmark-spreadsheet-fill"></i> <span>Realisasi</span> </a>
+					<ul class="submenu">
+						<li class="submenu-item <?php if ($page == 'realisasi-regular') {echo 'active';} ?>">
+							<a href="<?php echo base_url(); ?>benur/realisasi/data/regular" class="submenu-link">Regular</a>
+						</li>
+						<li class="submenu-item <?php if ($page == 'realisasi-premium') {echo 'active';} ?>">
+							<a href="<?php echo base_url(); ?>benur/realisasi/data/premium" class="submenu-link" >Premium</a>
+						</li>
+						<li class="submenu-item <?php if ($page == 'realisasi-maksimalprima') {echo 'active';} ?>">
+							<a href="<?php echo base_url(); ?>benur/realisasi/data/maksimalprima" class="submenu-link">Maksimal Prima</a>
+						</li>
+					</ul>
+				</li>
 				<li class="sidebar-title">Setting</li>
 				<li class="sidebar-item <?php if ($root == 'user') {echo 'active';} ?> ">
 					<a href="<?php echo base_url(); ?>user" class="sidebar-link">
